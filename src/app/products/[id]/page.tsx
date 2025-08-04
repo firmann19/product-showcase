@@ -1,6 +1,13 @@
 import { Product } from "@/lib/types.api";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
+
+type Props = {
+  params: {
+    id: string;
+  };
+};
 
 async function fetchProduct(id: string): Promise<Product> {
   const res = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -8,11 +15,14 @@ async function fetchProduct(id: string): Promise<Product> {
   return res.json();
 }
 
-export default async function ProductDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const product = await fetchProduct(params.id);
+  return {
+    title: product.title,
+  };
+}
+
+export default async function ProductDetailPage({ params }: Props) {
   const product = await fetchProduct(params.id);
 
   return (
