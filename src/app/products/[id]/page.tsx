@@ -8,11 +8,11 @@ async function fetchProduct(id: string): Promise<Product> {
   return res.json();
 }
 
-type Props = {
+export default async function ProductDetailPage({
+  params,
+}: {
   params: { id: string };
-};
-
-export default async function ProductDetailPage({ params }: Props) {
+}) {
   const product = await fetchProduct(params.id);
 
   return (
