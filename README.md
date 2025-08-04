@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ Product Showcase
 
-## Getting Started
+Product Showcase adalah aplikasi demo yang menampilkan daftar produk dari Fake Store API. Fitur utama meliputi pencarian produk, filter kategori, dan halaman detail produk.
 
-First, run the development server:
+## 🚀 Demo Langsung
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+👉 [Demo online (jika ada link deployment)](https://your-app-url.vercel.app)
+
+## 🧰 Tech Stack
+
+- **Next.js 14 (App Router)**
+- **TypeScript**
+- **Tailwind CSS**
+- **Fake Store API** (https://fakestoreapi.com)
+
+---
+
+## 📂 Struktur Proyek
+
+```
+/app
+  /products
+    /[id]
+      /page.tsx→ Halaman detail produk
+  globals.css     → Gaya global
+  layout.tsx      → Layout utama
+  page.tsx      → Halaman daftar produk
+
+/components
+  SearchBar.tsx
+  FilterSidebar.tsx
+  ProductCard.tsx
+
+/lib
+  api.ts          → Fetcher API utilitas
+  types.api.ts    → Tipe data produk
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Fitur
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🔍 Pencarian produk secara real-time
+- 🧱 Filter berdasarkan kategori
+- 📄 Halaman detail produk lengkap
+- 💡 Dukungan dark mode (default)
+- ⚡ UI responsif dan minimalis
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 Instalasi & Menjalankan Lokal
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone repository:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+git clone https://github.com/your-username/product-showcase.git
+cd product-showcase
+```
 
-## Deploy on Vercel
+2. **Install dependencies:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+yarn install
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Jalankan development server:**
+
+```bash
+yarn run dev
+```
+
+Buka [http://localhost:3000](http://localhost:3000) di browser.
+
+---
+
+## ⚙️ Konfigurasi
+
+Tidak memerlukan konfigurasi tambahan karena menggunakan public API dari [Fake Store API](https://fakestoreapi.com).
+
+---
+
+## 🤝 Kontribusi
+
+Pull request dipersilakan. Untuk perubahan besar, buka issue terlebih dahulu.
+
+---
+
+## 📄 Lisensi
+
+MIT License © 2025 – Firman Ramadhan
