@@ -1,5 +1,3 @@
-// app/products/[id]/page.tsx
-
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,11 +9,13 @@ async function fetchProduct(id: string): Promise<Product> {
   return res.json();
 }
 
-interface ProductDetailPageProps {
-  params: { id: string };
+interface PageProps {
+  params: {
+    id: string;
+  };
 }
 
-const ProductDetailPage = async ({ params }: ProductDetailPageProps) => {
+export default async function ProductDetailPage({ params }: PageProps) {
   const product = await fetchProduct(params.id);
 
   return (
@@ -38,7 +38,7 @@ const ProductDetailPage = async ({ params }: ProductDetailPageProps) => {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        Kembali ke Produk
+        Kembali ke Daftar Produk
       </Link>
 
       <div className="flex flex-col md:flex-row gap-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6">
@@ -71,6 +71,4 @@ const ProductDetailPage = async ({ params }: ProductDetailPageProps) => {
       </div>
     </div>
   );
-};
-
-export default ProductDetailPage;
+}
