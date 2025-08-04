@@ -1,7 +1,6 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { Product } from "@/lib/types.api";
+import Image from "next/image";
+import Link from "next/link";
 
 async function fetchProduct(id: string): Promise<Product> {
   const res = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -9,13 +8,11 @@ async function fetchProduct(id: string): Promise<Product> {
   return res.json();
 }
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
+type Props = {
+  params: { id: string };
+};
 
-export default async function ProductDetailPage({ params }: PageProps) {
+export default async function ProductDetailPage({ params }: Props) {
   const product = await fetchProduct(params.id);
 
   return (
