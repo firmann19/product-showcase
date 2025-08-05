@@ -3,26 +3,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 
-type Props = {
-  params: {
-    id: string;
-  };
-};
-
 async function fetchProduct(id: string): Promise<Product> {
   const res = await fetch(`https://fakestoreapi.com/products/${id}`);
   if (!res.ok) throw new Error("Produk tidak ditemukan");
   return res.json();
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
   const product = await fetchProduct(params.id);
   return {
     title: product.title,
   };
 }
 
-export default async function ProductDetailPage({ params }: Props) {
+export default async function ProductDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const product = await fetchProduct(params.id);
 
   return (
