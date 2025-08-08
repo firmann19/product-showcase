@@ -3,21 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 
-// 1. Tipe untuk props
 type PageProps = {
   params: {
     id: string;
   };
 };
 
-// 2. Fetch produk
 async function fetchProduct(id: string): Promise<Product> {
   const res = await fetch(`https://fakestoreapi.com/products/${id}`);
   if (!res.ok) throw new Error("Produk tidak ditemukan");
   return res.json();
 }
 
-// 3. Metadata function
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -27,7 +24,6 @@ export async function generateMetadata({
   };
 }
 
-// 4. Page component
 export default async function ProductDetailPage({ params }: PageProps) {
   const product = await fetchProduct(params.id);
 
